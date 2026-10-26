@@ -10,6 +10,7 @@ inviteo/
 ├── index.html              Page principale (toutes les sections + fenêtre de commande)
 ├── style.css               Styles (palette Invitéo, responsive, accessibilité)
 ├── script.js               Prix, calculateur, formulaire, messages WhatsApp
+├── modele-anniversaire.html/.css/.js   Page de démonstration d'une invitation complète
 ├── mentions-legales.html   Mentions légales
 ├── confidentialite.html    Politique de confidentialité
 ├── vercel.json             Configuration Vercel (URLs propres, en-têtes de sécurité)
@@ -52,6 +53,19 @@ vercel --prod # mise en production
 ```
 
 **Après le premier déploiement** : dans `index.html`, remplacez `VOTRE-DOMAINE.vercel.app` (balise `og:image`) par l'adresse réelle du site, puis redéployez. Les aperçus de lien WhatsApp et Facebook exigent une URL absolue.
+
+## Page de démonstration : `modele-anniversaire.html`
+
+Une invitation d'anniversaire complète (noms fictifs), liée depuis la carte « Anniversaire » de la galerie : ouverture avec un billet qui se déchire et des confettis, compte à rebours, programme, lieu, tenue, réponse des invités.
+
+- **Prénom personnalisé** : `modele-anniversaire.html?invite=Marie` affiche « Marie » sur le billet (texte brut, caractères filtrés).
+- **Date de l'événement** : constante `EVENT_DATE` dans `modele-anniversaire.js` (fuseau de Lubumbashi, UTC+2). Après cette date, le compte à rebours affiche « C'est le grand jour ».
+- **Réponse des invités simulée** : le formulaire valide les champs mais n'envoie ni n'enregistre rien. Un vrai RSVP demandera un backend.
+- **Accessibilité** : animations désactivées si le visiteur a demandé moins de mouvement ; touche Échap ou bouton pour ouvrir ; le compte à rebours est annoncé une fois par minute aux lecteurs d'écran.
+
+## Système d'invitations personnalisées (en construction)
+
+Le dossier `supabase/` contient la base de données du futur système (événements, invités, QR codes uniques, contrôle d'entrée) : schéma, sécurité, tests. Voir `supabase/README.md` pour l'état exact. Le site vitrine n'en dépend pas et fonctionne comme avant.
 
 ## Changer le numéro WhatsApp ou un prix
 

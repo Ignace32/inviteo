@@ -178,7 +178,7 @@ html:not(.js) .header__inner { flex-wrap: wrap; padding-block: 0.5rem; }
 @media (min-width: 480px) { .hero__visual { --pw: 170px; --off: 108px; } }
 @media (min-width: 960px) {
   .hero__grid { grid-template-columns: 1.05fr 1fr; gap: 3rem; }
-  .hero__visual { --pw: 210px; --off: 136px; }
+  .hero__visual { --pw: 210px; --off: 168px; }
 }
 
 .phone {
@@ -405,6 +405,7 @@ html:not(.js) .header__inner { flex-wrap: wrap; padding-block: 0.5rem; }
   border-radius: 999px; border: 2px solid var(--charcoal); box-shadow: var(--shadow);
 }
 .wa-float .icon { width: 24px; height: 24px; }
+html.modal-open .wa-float { display: none; }
 @media (min-width: 800px) { .wa-float { display: none; } }
 
 /* ---------- Fenêtre de commande ---------- */
