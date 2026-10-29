@@ -1,0 +1,7 @@
+supabase
+tests
+.env
+.env.example
+README.md
+DEPLOIEMENT.md
+ESSAI_TELEPHONES.md

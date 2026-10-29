@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Espace organisateur — Invitéo</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/organisateur.css">
+<link rel="stylesheet" href="/assets/designs.css">
+<link rel="stylesheet" href="/assets/editeur.css">
+</head>
+<body>
+<header class="top"><span class="brand">Invitéo · Organisateur</span><button id="logout" class="link" type="button" hidden>Déconnexion</button></header>
+<main>
+  <section id="v-login" class="view narrow" hidden>
+    <h1>Connexion</h1>
+    <form id="login-form" novalidate>
+      <label>Adresse e-mail<input name="email" type="email" autocomplete="username" required></label>
+      <label>Mot de passe<input name="password" type="password" autocomplete="current-password" required></label>
+      <button class="btn" type="submit">Se connecter</button>
+      <p id="login-msg" class="msg" role="alert"></p>
+    </form>
+  </section>
+
+  <section id="v-events" class="view" hidden>
+    <div class="head-row"><h1>Mes événements</h1><button id="new-event" class="btn" type="button">Nouvel événement</button></div>
+    <div id="event-cards" class="cards"></div>
+    <p id="events-msg" class="msg" role="status"></p>
+  </section>
+
+  <section id="v-detail" class="view" hidden>
+    <p><button id="back" class="link" type="button">← Mes événements</button></p>
+    <div class="head-row"><h1 id="d-name"></h1><button id="edit-event" class="btn btn-line" type="button">Personnaliser l'invitation</button></div>
+    <p id="d-sub" class="sub"></p>
+    <div id="stats" class="stats" aria-live="polite"></div>
+    <div class="bar-wrap" aria-hidden="true"><div id="bar" class="bar"></div></div>
+    <p id="bar-label" class="sub"></p>
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Rechercher un invité" aria-label="Rechercher un invité">
+      <select id="filter" aria-label="Filtrer">
+        <option value="all">Tous</option><option value="none">Sans invitation</option><option value="valid">Invitation émise</option><option value="used">Déjà entrés</option><option value="nr">Sans réponse</option>
+      </select>
+      <button id="open-import" class="btn btn-line" type="button">Importer un CSV</button>
+    </div>
+    <p id="d-msg" class="msg" role="status"></p>
+    <div id="guests" class="guests"></div>
+  </section>
+
+  <section id="v-edit" class="view wide" hidden>
+    <p><button id="e-back" class="link" type="button">← Retour</button></p>
+    <h1 id="e-title">Nouvel événement</h1>
+    <div class="e-tabs" role="tablist" aria-label="Affichage">
+      <button id="tab-form" type="button" role="tab" aria-selected="true">Modifier</button>
+      <button id="tab-pv" type="button" role="tab" aria-selected="false">Aperçu</button>
+    </div>
+    <div class="e-grid">
+      <form id="e-form" class="e-form" novalidate>
+        <fieldset><legend>1. Choisir le modèle</legend>
+          <div class="chips" id="e-types" role="group" aria-label="Type de modèle"></div>
+          <div id="e-templates" class="tpl-grid"></div>
+        </fieldset>
+        <fieldset><legend>2. Informations</legend>
+          <label>Type d'événement<select id="f-type" name="event_type"><option value="wedding">Mariage / fiançailles</option><option value="birthday">Anniversaire</option><option value="baptism">Baptême / cérémonie familiale</option><option value="graduation">Remise de diplôme</option><option value="corporate">Professionnel</option><option value="other">Autre</option></select></label>
+          <label>Nom de l'événement<input name="name" maxlength="150" required></label>
+          <label>Personnes célébrées <small>(ex. « Awa &amp; Jean »)</small><input name="celebrated_names" maxlength="150"></label>
+          <label>Date et heure <small>(heure de Lubumbashi)</small><input name="starts_at" type="datetime-local" required></label>
+          <label>Lieu<input name="venue_name" maxlength="150"></label>
+          <label>Adresse<input name="address" maxlength="250"></label>
+          <label>Lien Google Maps <small>(https://…, facultatif)</small><input name="maps_url" type="url" maxlength="500"></label>
+          <label>Texte d'invitation<textarea name="message" rows="3" maxlength="600"></textarea></label>
+          <label>Informations complémentaires<textarea name="extra_info" rows="2" maxlength="600"></textarea></label>
+          <div><b class="lbl">Programme</b><div id="e-program"></div><button id="e-add-step" class="btn btn-sm btn-line" type="button">Ajouter une étape</button></div>
+        </fieldset>
+        <fieldset><legend>3. Couleurs</legend>
+          <div id="e-colors" class="colors"></div>
+          <button id="e-reset-colors" class="btn btn-sm btn-line" type="button">Couleurs du modèle</button>
+        </fieldset>
+        <fieldset><legend>4. Photos</legend>
+          <p class="hint">Les photos affichées dans l'aperçu sont des exemples : elles ne sont jamais conservées dans votre invitation. JPEG, PNG ou WebP.</p>
+          <div id="e-slots"></div>
+          <input id="e-file" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+          <p id="e-photo-msg" class="msg" role="status"></p>
+        </fieldset>
+        <fieldset><legend>5. Options</legend>
+          <label class="check"><input type="checkbox" name="rsvp_enabled"> Les invités peuvent confirmer leur présence</label>
+          <label class="check"><input type="checkbox" name="show_qr_on_page"> Afficher le QR code d'entrée sur la page de l'invité</label>
+          <div id="e-agents-box" hidden><b class="lbl">Agents de contrôle à l'entrée</b><div id="e-agents"></div></div>
+          <label class="check" id="e-publish-box"><input type="checkbox" name="publish"> Publier maintenant (les invitations deviennent utilisables)</label>
+        </fieldset>
+        <p id="e-msg" class="msg" role="alert"></p>
+        <div class="row">
+          <button id="e-save" class="btn" type="submit">Enregistrer</button>
+          <button id="e-revert" class="btn btn-line" type="button">Revenir au modèle initial</button>
+        </div>
+      </form>
+      <aside class="e-pv" aria-label="Aperçu de l'invitation">
+        <div class="pv-tools">
+          <button id="pv-replay" class="btn btn-sm btn-line" type="button">Rejouer l'animation</button>
+          <a id="pv-full" class="btn btn-sm btn-line" target="_blank" rel="noopener noreferrer">Ouvrir l'aperçu complet</a>
+        </div>
+        <div id="pv" class="pv-stage"></div>
+        <p class="hint" id="pv-note"></p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<dialog id="dlg-ticket" aria-labelledby="t-title">
+  <h2 id="t-title">Invitation prête</h2>
+  <p id="t-name" class="strong"></p>
+  <p class="warn">Ce lien et ce QR code ne sont affichés qu'une seule fois. Enregistrez le PDF ou envoyez le lien maintenant ; sinon, il faudra réémettre l'invitation.</p>
+  <label>Lien à envoyer<input id="t-link" type="text" readonly></label>
+  <div class="row">
+    <button id="t-copy" class="btn btn-line" type="button">Copier le lien</button>
+    <a id="t-wa" class="btn" target="_blank" rel="noopener noreferrer">Envoyer sur WhatsApp</a>
+    <a id="t-pdf" class="btn btn-line">Télécharger le PDF</a>
+  </div>
+  <p id="t-msg" class="msg" role="status"></p>
+  <form method="dialog"><button class="btn btn-dark" id="t-close">Terminé</button></form>
+</dialog>
+
+<dialog id="dlg-crop" aria-labelledby="c-title">
+  <h2 id="c-title">Recadrer la photo</h2>
+  <p class="hint" id="c-hint">Faites glisser la photo pour la placer, et utilisez le curseur pour zoomer.</p>
+  <div class="crop-box" id="c-box"><canvas id="c-canvas" aria-label="Zone de recadrage"></canvas></div>
+  <label>Zoom<input id="c-zoom" type="range" min="100" max="400" value="100"></label>
+  <p id="c-msg" class="msg err" role="alert"></p>
+  <div class="row"><button id="c-ok" class="btn" type="button">Utiliser cette photo</button><button id="c-cancel" class="btn btn-line" type="button">Annuler</button></div>
+</dialog>
+
+<dialog id="dlg-import" aria-labelledby="i-title">
+  <h2 id="i-title">Importer des invités</h2>
+  <p>Fichier CSV avec une ligne d'en-tête. Colonnes reconnues : <b>nom</b> (obligatoire), téléphone, e-mail, personnes, billet, notes. Maximum 2000 lignes.</p>
+  <p><a id="i-model" class="link" download="modele-invites.csv">Télécharger un modèle</a></p>
+  <label>Fichier<input id="i-file" type="file" accept=".csv,text/csv,text/plain"></label>
+  <label>… ou collez le contenu<textarea id="i-text" rows="5" spellcheck="false"></textarea></label>
+  <p id="i-preview" class="msg" role="status"></p>
+  <div id="i-result"></div>
+  <div class="row"><button id="i-go" class="btn" type="button" disabled>Importer</button><button id="i-close" class="btn btn-line" type="button">Fermer</button></div>
+</dialog>
+
+<script src="/assets/designs-core.js"></script>
+<script src="/assets/organisateur.js"></script>
+<script src="/assets/editeur.js"></script>
+</body>
+</html>
