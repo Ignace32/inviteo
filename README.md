@@ -108,3 +108,8 @@ Ces fonctions sont décrites sur le site comme dépendant de la formule et de le
 ## Vérifications effectuées
 
 Calculs et liens testés par script (Node) : voir le compte rendu de livraison. Tests à refaire sur appareil avant le lancement : ouverture de WhatsApp depuis un téléphone Android (application installée et non installée) et depuis un ordinateur (WhatsApp Web ou application de bureau).
+
+
+## Plateforme d'invitations (Supabase)
+
+Le site contient aussi la plateforme complète (pages d'invitation, PDF, scanner, espace organisateur). Mise en ligne : voir `DEPLOIEMENT.md` ; essai sur téléphones : `ESSAI_TELEPHONES.md` ; détails techniques : `supabase/README.md`.

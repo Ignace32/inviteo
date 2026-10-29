@@ -1,0 +1,41 @@
+/* Éditeur d'invitation : formulaire à gauche, aperçu en direct à droite (onglets sur téléphone). */
+.view.wide{max-width:72rem}
+.head-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem}
+.e-tabs{display:flex;gap:.4rem;margin:.6rem 0 1rem}
+.e-tabs button{flex:1;min-height:44px;border:1.5px solid #cfc7b8;border-radius:8px;background:var(--paper);font:700 .95rem system-ui,sans-serif;cursor:pointer;color:var(--ink)}
+.e-tabs button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.e-grid{display:grid;gap:1.4rem}
+.e-grid[data-tab=form] .e-pv{display:none}.e-grid[data-tab=pv] .e-form{display:none}
+@media(min-width:62rem){.e-tabs{display:none}.e-grid,.e-grid[data-tab]{grid-template-columns:minmax(0,1fr) minmax(0,26rem);align-items:start}.e-grid .e-pv,.e-grid .e-form{display:block!important}.e-pv{position:sticky;top:1rem}}
+.e-form fieldset{border:1px solid var(--line);border-radius:12px;padding:1rem;margin:0 0 1rem;background:#fffdf9}
+.e-form legend{font-weight:700;padding:0 .4rem}
+.lbl{display:block;margin-bottom:.4rem;font-size:.95rem}
+.hint{color:var(--muted);font-size:.88rem;margin:.2rem 0 .8rem}
+label small{color:var(--muted)}
+.check{display:flex;gap:.6rem;align-items:flex-start;min-height:40px}.check input{width:1.2rem;height:1.2rem;min-height:0;margin:.2rem 0 0;flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem}
+.chips button{min-height:38px;padding:.3rem .8rem;border:1.5px solid #cfc7b8;border-radius:99px;background:var(--paper);font:600 .85rem system-ui,sans-serif;cursor:pointer;color:var(--ink)}
+.chips button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tpl-grid{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr))}
+.tpl-card{display:flex;flex-direction:column;gap:.3rem;text-align:left;padding:.6rem;background:var(--paper);border:2px solid var(--line);border-radius:10px;cursor:pointer;font:inherit;color:inherit}
+.tpl-card[aria-pressed=true]{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent)}
+.tpl-card b{font-size:.95rem}.tpl-card span.d{font-size:.8rem;color:var(--muted)}
+.sw{display:flex;height:1.6rem;border-radius:5px;overflow:hidden;border:1px solid var(--line)}.sw i{flex:1}
+.colors{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(8.5rem,1fr));margin-bottom:.8rem}
+.colors label{margin:0}.colors input{padding:.15rem;min-height:44px;cursor:pointer}
+.prog-row{display:grid;grid-template-columns:5.5rem 1fr auto;gap:.4rem;margin-bottom:.4rem}.prog-row input{margin:0}
+.slot{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;padding:.6rem;border:1px dashed #cfc7b8;border-radius:10px;margin-bottom:.6rem;background:var(--paper)}
+.slot .th{width:4.2rem;height:4.2rem;border-radius:8px;background:#eee center/cover no-repeat;flex:none;border:1px solid var(--line)}
+.slot .tx{flex:1 1 10rem}.slot .tx b{display:block}.slot .tx small{color:var(--muted)}
+.slot .acts{display:flex;flex-wrap:wrap;gap:.4rem}
+.e-pv .pv-tools{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem}
+.pv-stage{background:#e9e3d8;border-radius:10px;padding:.6rem;max-height:calc(100vh - 8rem);overflow:auto;--text:#25221F;--muted:#6B655E;--wash:#A9C0DC;--f-display:Georgia,serif;--f-script:cursive;--f-body:system-ui,sans-serif}
+.pv-stage .dz-wrap{margin:0}.pv-stage .dz{width:100%;box-shadow:0 10px 26px -14px rgba(0,0,0,.5)}
+.pv-stage.static .dz .a1,.pv-stage.static .dz .a2,.pv-stage.static .dz .a3,.pv-stage.static .dz .a4,.pv-stage.static .dz .a5,.pv-stage.static .dz .a6,.pv-stage.static .dz .dz-branch,.pv-stage.static .dz .dz-flower,.pv-stage.static .dz .dz-wash{opacity:1!important;animation:none!important}
+.pv-stage.static .dz .dz-ph img{animation:none!important}.pv-stage.static .dz-petals{display:none}
+.pv-simple{padding:2rem 1rem;text-align:center;background:var(--paper);border-radius:6px}.pv-simple h3{font:600 1.8rem var(--f-display);margin:.2rem 0}
+.e-pv.fs{position:fixed;inset:0;z-index:50;background:rgba(20,18,16,.92);padding:1rem;overflow:auto}
+.e-pv.fs .pv-stage{max-height:none;max-width:34rem;margin:0 auto;background:transparent}
+.e-pv.fs .pv-stage .dz{width:min(100%,calc(92vh / var(--ar,1.4)))}
+.crop-box{width:min(100%,20rem);margin:.4rem auto;border-radius:6px;overflow:hidden;background:#222;touch-action:none;cursor:grab}
+.crop-box canvas{display:block;width:100%;height:auto}
