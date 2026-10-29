@@ -1,5 +1,0 @@
-{
-  "name": "inviteo",
-  "private": true,
-  "engines": { "node": ">=20" }
-}
