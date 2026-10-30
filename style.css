@@ -488,3 +488,19 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* Miniatures du catalogue des modèles */
+.mini{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5em;padding:1.2em;text-align:center;background:var(--b);color:var(--t);font-family:Georgia,serif}
+.mini__k{font-size:.62em;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+.mini__t{font-size:1.9em;line-height:1.1;font-style:italic}
+.mini__r{width:2.5em;height:1px;background:var(--a)}
+.mini__d{font-size:.7em;letter-spacing:.06em;color:var(--a);filter:brightness(.85)}
+.mini__ph{margin-top:.6em;width:55%;aspect-ratio:4/3;border-radius:.5em .5em 40% 40%;background:color-mix(in srgb,var(--t) 16%,var(--b));font-size:.6em;display:grid;place-items:end center;padding-bottom:.4em;opacity:.8}
+.mini--0{--b:#ECE8E3;--t:#1F1B18;--a:#8C6B4F}
+.mini--1{--b:#EDE5D6;--t:#2A241D;--a:#B8935A}
+.mini--2{--b:#F4F0E6;--t:#4F5B3C;--a:#7C8A67}
+.mini--3{--b:#CFE0EE;--t:#3B2A22;--a:#3B2A22}
+.mini--4{--b:#8C8378;--t:#FFFFFF;--a:#FFFFFF}
+.mini--5{--b:#F3EEE4;--t:#B8893C;--a:#B8893C}
+.mini--6{--b:#F5F7FA;--t:#1E3358;--a:#B8953E}
+.mini--7{--b:#E7DFD2;--t:#5C4A3A;--a:#8A6F52}
