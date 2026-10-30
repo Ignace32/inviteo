@@ -46,7 +46,7 @@ function branch({ cls = '', leaves = 9, seed = 1, color = 'currentColor', style 
 }
 
 // Fleur à pétales superposés (pivoine stylisée). tones : trois couleurs du centre vers l'extérieur.
-function flower({ cls = '', seed = 3, tones = ['#FFFFFF', '#F1ECE3', '#E4DCCD'], petals = 9, center = '#D9C58F', shadow = false }) {
+function flower({ cls = '', seed = 3, tones = ['#FFFFFF', '#F6FAFD', '#B3CFE5'], petals = 9, center = '#4A7FA7', shadow = false }) {
   const r = prng(seed), g = [];
   [[1, 46, 0], [0.74, 36, 18], [0.5, 26, 7]].forEach(([k, len, off], layer) => {
     const n = petals - layer;
@@ -149,7 +149,7 @@ const CARDS = {
     const [a, b] = c.names, prog = c.program.slice(0, 3), IC = ['rings', 'glasses', 'note'];
     return `<div class="dz dz-sauge" style="--ar:1.5">
   ${wash({ cls: 'w1', color: 'var(--accent)', id: 'wcs', seed: 6 })}
-  ${flower({ cls: 'f1', seed: 2, tones: ['#FFFFFF', '#F3EFE6', '#E1DCCB'], petals: 8, shadow: false })}${branch({ cls: 'lf1', seed: 21, leaves: 8, color: 'var(--accent)', style: 'fill' })}${branch({ cls: 'lf2', seed: 22, leaves: 9, color: 'var(--accent)', style: 'fill' })}
+  ${flower({ cls: 'f1', seed: 2, tones: ['#FFFFFF', '#F6FAFD', '#B3CFE5'], petals: 8, shadow: false })}${branch({ cls: 'lf1', seed: 21, leaves: 8, color: 'var(--accent)', style: 'fill' })}${branch({ cls: 'lf2', seed: 22, leaves: 9, color: 'var(--accent)', style: 'fill' })}
   <div class="dz-s-arch"><span class="frame"></span>${photo(c, 'dz-s-photo')}</div>
   <div class="dz-s-text">
     <p class="dz-cap a1">${L(c, 'kicker', 'Invitation à notre mariage')}</p>
@@ -218,9 +218,9 @@ const CARDS = {
     const [a, b] = c.names;
     return `<div class="dz dz-aquarelle" style="--ar:1.5">
   ${wash({ cls: 'w1', color: 'var(--wash)', id: 'wca', seed: 9, opacity: 0.5 })}${wash({ cls: 'w2', color: 'var(--wash)', id: 'wcb', seed: 14, opacity: 0.5 })}
-  ${flower({ cls: 'f1', seed: 4, tones: ['#E9EFF8', '#A9BEDD', '#7F9CC6'], petals: 8, center: '#C9A864' })}${flower({ cls: 'f2', seed: 7, tones: ['#FFFFFF', '#F1EEE6', '#DCD6C6'], petals: 7, center: '#C9A864' })}
-  ${flower({ cls: 'f3', seed: 6, tones: ['#E9EFF8', '#A9BEDD', '#7F9CC6'], petals: 8, center: '#C9A864' })}${flower({ cls: 'f4', seed: 13, tones: ['#FFFFFF', '#F1EEE6', '#DCD6C6'], petals: 7, center: '#C9A864' })}
-  ${branch({ cls: 'lf1', seed: 31, leaves: 7, color: '#8CA39A', style: 'fill' })}${branch({ cls: 'lf2', seed: 32, leaves: 7, color: '#8CA39A', style: 'fill' })}
+  ${flower({ cls: 'f1', seed: 4, tones: ['#F6FAFD', '#B3CFE5', '#4A7FA7'], petals: 8, center: '#1A3D63' })}${flower({ cls: 'f2', seed: 7, tones: ['#FFFFFF', '#F6FAFD', '#B3CFE5'], petals: 7, center: '#4A7FA7' })}
+  ${flower({ cls: 'f3', seed: 6, tones: ['#F6FAFD', '#B3CFE5', '#4A7FA7'], petals: 8, center: '#1A3D63' })}${flower({ cls: 'f4', seed: 13, tones: ['#FFFFFF', '#F6FAFD', '#B3CFE5'], petals: 7, center: '#4A7FA7' })}
+  ${branch({ cls: 'lf1', seed: 31, leaves: 7, color: '#4A7FA7', style: 'fill' })}${branch({ cls: 'lf2', seed: 32, leaves: 7, color: '#4A7FA7', style: 'fill' })}
   <span class="dz-frame"></span>${corner('c1')}${corner('c2')}${corner('c3')}${corner('c4')}
   <div class="dz-q-text">
     <div class="dz-crest a1" aria-hidden="true"><span>${esc(initial(a))}</span><i></i><span>${esc(initial(b))}</span></div>
@@ -239,9 +239,9 @@ const CARDS = {
   'arche-creme'(c) {
     const [a, b] = c.names;
     return `<div class="dz dz-creme" style="--ar:1.78">
-  ${flower({ cls: 'f1', seed: 41, tones: ['#FBF8F2', '#F1EBDF', '#DDD3C1'], petals: 9, center: '#D8CBB0', shadow: true })}${flower({ cls: 'f2', seed: 42, tones: ['#FBF8F2', '#F1EBDF', '#DDD3C1'], petals: 8, center: '#D8CBB0', shadow: true })}
-  ${flower({ cls: 'f3', seed: 43, tones: ['#FBF8F2', '#F1EBDF', '#DDD3C1'], petals: 9, center: '#D8CBB0', shadow: true })}${flower({ cls: 'f4', seed: 44, tones: ['#FBF8F2', '#F1EBDF', '#DDD3C1'], petals: 7, center: '#D8CBB0', shadow: true })}
-  ${branch({ cls: 'lf1', seed: 45, leaves: 7, color: '#D5CAB6', style: 'fill' })}${branch({ cls: 'lf2', seed: 46, leaves: 7, color: '#D5CAB6', style: 'fill' })}
+  ${flower({ cls: 'f1', seed: 41, tones: ['#FFFFFF', '#F6FAFD', '#B3CFE5'], petals: 9, center: '#4A7FA7', shadow: true })}${flower({ cls: 'f2', seed: 42, tones: ['#FFFFFF', '#F6FAFD', '#B3CFE5'], petals: 8, center: '#4A7FA7', shadow: true })}
+  ${flower({ cls: 'f3', seed: 43, tones: ['#FFFFFF', '#F6FAFD', '#B3CFE5'], petals: 9, center: '#4A7FA7', shadow: true })}${flower({ cls: 'f4', seed: 44, tones: ['#FFFFFF', '#F6FAFD', '#B3CFE5'], petals: 7, center: '#4A7FA7', shadow: true })}
+  ${branch({ cls: 'lf1', seed: 45, leaves: 7, color: '#B3CFE5', style: 'fill' })}${branch({ cls: 'lf2', seed: 46, leaves: 7, color: '#B3CFE5', style: 'fill' })}
   <div class="dz-c-panel"><span class="dash"></span>
     <p class="dz-script big a1">${L(c, 'script', 'Jour de mariage')}</p>
     <p class="dz-cap a2">${L(c, 'kicker', 'Invitation de mariage')}</p>

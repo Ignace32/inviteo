@@ -271,7 +271,7 @@
   function toSvg(text, options) {
     options = options || {};
     var m = toMatrix(text, options.level || 'M'), border = options.border === undefined ? 4 : options.border;
-    var dark = options.dark || '#25221F', light = options.light || '#FFFFFF';
+    var dark = options.dark || '#0A1931', light = options.light || '#FFFFFF';
     var d = [], x, y, start;
     for (y = 0; y < m.size; y++) {
       x = 0;

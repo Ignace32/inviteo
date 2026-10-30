@@ -50,7 +50,7 @@ function fmtDate(iso, tz) {
 
 function buildTicketPdf(t) {
   // t : { guest_name, max_entries, event_name, celebrated_names, starts_at, timezone, venue_name, address, qrText }
-  const ink = '#25221F', muted = '#6B655E', accent = '#E86D32', bg = '#FAF7F1';
+  const ink = '#0A1931', muted = '#1A3D63', accent = '#4A7FA7', bg = '#F6FAFD';
   const ops = [];
   const F = { H: '/F1', HB: '/F2', T: '/F3', TB: '/F4' };
   const NAME = { '/F1': 'Helvetica', '/F2': 'Helvetica-Bold', '/F3': 'Times-Roman', '/F4': 'Times-Bold' };
