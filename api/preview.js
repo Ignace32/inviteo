@@ -47,7 +47,7 @@ function sampleData(tpl) {
 
 function catalogue(list) {
   const items = list.map((t) => `<li><a class="cat-card" href="/api/preview?slug=${encodeURIComponent(t.slug)}"><span class="cat-sw" aria-hidden="true">${['bg', 'paper', 'accent', 'text'].map((k) => `<i style="background:${/^#[0-9a-fA-F]{6}$/.test((t.config.palette || {})[k]) ? t.config.palette[k] : '#ccc'}"></i>`).join('')}</span><b>${esc(t.name)}</b><span>${esc(t.description || '')}</span><em>Voir l'aperçu</em></a></li>`).join('');
-  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Modèles d'invitation — Invitéo</title><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/invitation.css"><link rel="stylesheet" href="/assets/catalogue.css"></head>
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Modèles d'invitation — Invitéo</title><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/invitation.css"><link rel="stylesheet" href="/assets/catalogue.css"><link rel="stylesheet" href="/assets/ui.css"></head>
 <body class="catalogue"><main class="cat"><p class="brand">Invitéo</p><h1>Nos modèles d'invitation</h1><p class="cat-lead">Ouvrez un modèle pour voir son rendu animé avec des informations d'exemple. Chaque photo se remplace par la vôtre.</p><ul class="cat-grid">${items}</ul><p class="cat-foot"><a href="/">Retour au site</a></p></main></body></html>`;
 }
 

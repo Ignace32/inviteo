@@ -1,0 +1,48 @@
+/* Ici j'ai mis les styles communs, ceux qui sont identiques mais qui se retrouvent dans plus de 3 fichiers */
+:root {
+  --ui-bg: #F6FAFD;
+  --ui-surface: #FFFFFF;
+  --ui-text: #0A1931;
+  --ui-muted: #1A3D63;
+  --ui-primary: #4A7FA7;
+  --ui-primary-strong: #1A3D63;
+  --ui-line: #B3CFE5;
+  --ui-danger: #B3261E;
+  --ui-radius: 10px;
+  --ui-control-height: 44px;
+  --ui-focus: 3px solid #4A7FA7;
+}
+
+/* Actions */
+.btn {
+  border-radius: 10px;
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease, transform .18s ease, opacity .18s ease;
+}
+.btn:hover:not(:disabled) { background-color: var(--ui-primary-strong); border-color: var(--ui-primary-strong); color: var(--ui-surface); }
+.btn:active:not(:disabled) { transform: translateY(1px); }
+.btn-line { background: transparent; border-color: var(--ui-primary); }
+.btn-line:hover:not(:disabled) { background: var(--ui-primary); border-color: var(--ui-primary); color: var(--ui-surface); }
+.btn-danger { color: var(--ui-danger); border-color: var(--ui-danger); }
+.btn-danger:hover:not(:disabled) { background: var(--ui-danger); border-color: var(--ui-danger); color: var(--ui-surface); }
+
+/* Formulaires */
+input, select, textarea {
+  border-radius: var(--ui-radius);
+  border-color: var(--ui-line);
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--ui-primary);
+  box-shadow: 0 0 0 3px rgba(74, 127, 167, .22);
+}
+
+/* Claviers et feedback */
+:focus-visible { outline: var(--ui-focus); outline-offset: 2px; }
+.msg.err, .form-msg.err { color: var(--ui-danger); }
+.warn { background: #EAF3F9; border-left-color: var(--ui-primary); }
+.link { text-underline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, input, select, textarea { transition-duration: .01ms !important; }
+}

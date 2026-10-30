@@ -1,14 +1,14 @@
 /* Catalogue public des modèles */
-body.catalogue{background:#FAF7F1;color:#25221F}
+body.catalogue{background:#F6FAFD;color:#0A1931}
 .cat{max-width:62rem;margin:0 auto;padding:3rem 1.25rem 4rem}
 .cat h1{font-size:clamp(2rem,6vw,3rem);margin-bottom:.8rem}
-.cat-lead{color:#6B655E;max-width:36rem;margin:0 0 2rem}
+.cat-lead{color:#1A3D63;max-width:36rem;margin:0 0 2rem}
 .cat-grid{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr))}
-.cat-card{display:flex;flex-direction:column;gap:.4rem;height:100%;padding:1.1rem;background:#fff;border:1px solid #E5DED3;border-radius:6px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cat-card{display:flex;flex-direction:column;gap:.4rem;height:100%;padding:1.1rem;background:#fff;border:1px solid #B3CFE5;border-radius:6px;text-decoration:none;transition:transform .2s,box-shadow .2s}
 .cat-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px -16px rgba(0,0,0,.4)}
 .cat-card b{font:600 1.15rem Georgia,serif}
-.cat-card span{color:#6B655E;font-size:.92rem}
-.cat-card em{margin-top:auto;padding-top:.6rem;font-style:normal;font-weight:700;color:#E86D32}
-.cat-sw{display:flex!important;height:2rem;border-radius:3px;overflow:hidden;border:1px solid #E5DED3}
+.cat-card span{color:#1A3D63;font-size:.92rem}
+.cat-card em{margin-top:auto;padding-top:.6rem;font-style:normal;font-weight:700;color:#4A7FA7}
+.cat-sw{display:flex!important;height:2rem;border-radius:3px;overflow:hidden;border:1px solid #B3CFE5}
 .cat-sw i{flex:1}
 .cat-foot{margin-top:2rem}

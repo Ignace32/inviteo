@@ -2,7 +2,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 [hidden]{display:none!important}
-body{margin:0;background:var(--bg,#FAF7F1);color:var(--text,#25221F);font:400 1rem/1.6 var(--f-body,system-ui,sans-serif);min-height:100vh}
+body{margin:0;background:var(--bg,#F6FAFD);color:var(--text,#0A1931);font:400 1rem/1.6 var(--f-body,system-ui,sans-serif);min-height:100vh}
 h1,h2,.cover-guest,.venue{font-family:var(--f-display,Georgia,serif);font-weight:600;line-height:1.15;margin:0}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .brand{font-family:var(--f-display,Georgia,serif);letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;color:var(--accent);margin:0 0 1.5rem}
