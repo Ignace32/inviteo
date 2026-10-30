@@ -22,6 +22,9 @@ const DEMO_PHOTO = 'data:image/svg+xml;utf8,' + encodeURIComponent(
   '<circle cx="150" cy="250" r="34" fill="#B8AE9E"/><path d="M96 420c0-52 24-86 54-86s54 34 54 86Z" fill="#B8AE9E"/>' +
   '<circle cx="256" cy="240" r="34" fill="#A99F8F"/><path d="M202 420c0-52 24-86 54-86s54 34 54 86Z" fill="#A99F8F"/></svg>');
 
+// Photos d'exemple fournies par Invitéo, une par modèle (fichiers de assets/modeles/photos/).
+const PHOTOS = new Set(['monogramme-sable', 'arche-doree', 'sauge-programme', 'save-the-date-photo', 'fiancailles-plein-ecran', 'romance-doree', 'aquarelle-bleu', 'arche-creme']);
+
 function sampleData(tpl) {
   const d = new Date(Date.now() + 75 * 86400000); d.setUTCHours(13, 30, 0, 0); // 15 h 30 à Lubumbashi
   const birthday = tpl && tpl.event_type === 'birthday';
@@ -47,7 +50,7 @@ function sampleData(tpl) {
 
 function catalogue(list) {
   const items = list.map((t) => `<li><a class="cat-card" href="/api/preview?slug=${encodeURIComponent(t.slug)}"><span class="cat-sw" aria-hidden="true">${['bg', 'paper', 'accent', 'text'].map((k) => `<i style="background:${/^#[0-9a-fA-F]{6}$/.test((t.config.palette || {})[k]) ? t.config.palette[k] : '#ccc'}"></i>`).join('')}</span><b>${esc(t.name)}</b><span>${esc(t.description || '')}</span><em>Voir l'aperçu</em></a></li>`).join('');
-  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Modèles d'invitation — Invitéo</title><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/invitation.css"><link rel="stylesheet" href="/assets/catalogue.css"><link rel="stylesheet" href="/assets/ui.css"></head>
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Modèles d'invitation — Invitéo</title><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/invitation.css"><link rel="stylesheet" href="/assets/catalogue.css"></head>
 <body class="catalogue"><main class="cat"><p class="brand">Invitéo</p><h1>Nos modèles d'invitation</h1><p class="cat-lead">Ouvrez un modèle pour voir son rendu animé avec des informations d'exemple. Chaque photo se remplace par la vôtre.</p><ul class="cat-grid">${items}</ul><p class="cat-foot"><a href="/">Retour au site</a></p></main></body></html>`;
 }
 
@@ -61,6 +64,6 @@ module.exports = async function handler(req, res) {
   const tpl = /^[a-z0-9-]{1,60}$/.test(slug) ? list.find((t) => t.slug === slug) : null;
   if (!tpl) return send(res, 404, renderError('not_found'));
   const open = new URL(req.url, 'http://x').searchParams.get('cover') !== '0';
-  const html = renderInvitation(sampleData(tpl), 'preview', [], { sample: true, demoPhoto: DEMO_PHOTO, noCover: !open });
+  const html = renderInvitation(sampleData(tpl), 'preview', [], { sample: true, demoPhoto: PHOTOS.has(tpl.slug) ? '/assets/modeles/photos/' + tpl.slug + '.jpg' : DEMO_PHOTO, noCover: !open });
   return send(res, 200, html);
 };

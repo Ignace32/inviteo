@@ -44,7 +44,6 @@ function shell(title, body, { head = '', bodyAttr = '', scripts = '', cssVars = 
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 ${head}
 <link rel="stylesheet" href="/assets/invitation.css">
-<link rel="stylesheet" href="/assets/ui.css">
 ${after}
 ${cssVars ? `<style>${cssVars}</style>` : ''}
 </head>
@@ -67,8 +66,8 @@ function renderInvitation(data, token, signedPhotos, opts) {
   const ev = data.event, g = data.guest, t = (data.template && data.template.config) || {};
   const design = DESIGNS.includes(t.design) ? t.design : null;
   const pal = Object.assign({}, t.palette || {}, (ev.theme && ev.theme.palette) || {});
-  const bg = safeColor(pal.bg, '#F6FAFD'), paper = safeColor(pal.paper, '#FFFFFF'), text = safeColor(pal.text, '#0A1931');
-  const muted = safeColor(pal.muted, '#1A3D63'), accent = safeColor(pal.accent, '#4A7FA7'), washC = safeColor(pal.wash, accent);
+  const bg = safeColor(pal.bg, '#FAF7F1'), paper = safeColor(pal.paper, '#FFFFFF'), text = safeColor(pal.text, '#25221F');
+  const muted = safeColor(pal.muted, '#6B655E'), accent = safeColor(pal.accent, '#E86D32'), washC = safeColor(pal.wash, accent);
   const fd = safeFont(t.fonts && t.fonts.display, 'Fraunces'), fb = safeFont(t.fonts && t.fonts.body, 'DM Sans'), fs = safeFont(t.fonts && t.fonts.script, fd);
   const cover = COVERS.includes(t.cover) ? t.cover : 'envelope';
   const orn = ORNAMENTS.includes(t.ornament) ? t.ornament : 'rule';

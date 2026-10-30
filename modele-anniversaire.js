@@ -93,7 +93,7 @@
   function burstConfetti() {
     var box = $('#confetti');
     if (!box || reduced) { return; }
-    var colors = ['#4A7FA7', '#F6FAFD', '#FFFFFF', '#1A3D63'];
+    var colors = ['#E86D32', '#FAF7F1', '#FFFFFF', '#B4461A'];
     for (var i = 0; i < 46; i++) {
       var p = document.createElement('i');
       var angle = Math.random() * Math.PI * 2;

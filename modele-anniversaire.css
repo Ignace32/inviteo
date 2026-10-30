@@ -24,7 +24,7 @@ html:not(.js) .cover { display: none; }
 .cover.is-gone { opacity: 0; visibility: hidden; pointer-events: none; }
 .cover__inner { position: relative; z-index: 2; width: min(380px, 100%); text-align: center; display: grid; gap: 1.25rem; justify-items: center; }
 .cover__kicker { font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--orange); }
-.cover__hint { font-size: 0.88rem; color: var(--blue-mist); }
+.cover__hint { font-size: 0.88rem; color: #C9C3BA; }
 .cover__btn { min-width: 220px; }
 
 .ticket { position: relative; width: 100%; aspect-ratio: 4 / 5; max-height: 62dvh; font-size: 15px; }
@@ -52,7 +52,7 @@ html:not(.js) .cover { display: none; }
 
 /* Bulles discrètes (décoratives) */
 .cover__bubbles { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
-.bubble { position: absolute; bottom: -24px; border-radius: 50%; border: 1px solid rgba(246, 250, 253, 0.35); animation: rise linear infinite; }
+.bubble { position: absolute; bottom: -24px; border-radius: 50%; border: 1px solid rgba(250, 247, 241, 0.35); animation: rise linear infinite; }
 @keyframes rise { to { transform: translateY(-115dvh); opacity: 0; } }
 
 /* Confettis */
@@ -69,22 +69,22 @@ html:not(.js) .cover { display: none; }
 .inv-hero__inner { display: grid; gap: 0.9rem; justify-items: center; }
 .inv-hero__number { font-family: var(--font-display); font-weight: 600; font-size: clamp(7rem, 30vw, 12rem); line-height: 0.85; color: var(--orange); }
 .inv-hero__title { font-size: clamp(2rem, 7vw, 3.4rem); }
-.inv-hero__guest { color: var(--blue-mist); font-size: 1.1rem; }
-.inv-hero__date { color: var(--blue-mist); margin-bottom: 0.75rem; }
+.inv-hero__guest { color: #E4DED5; font-size: 1.1rem; }
+.inv-hero__date { color: #C9C3BA; margin-bottom: 0.75rem; }
 
 .block { padding-block: clamp(3rem, 8vw, 5rem); }
 .block--white { background: var(--white); border-block: 1px solid var(--line); }
 .block--dark { background: var(--charcoal); color: var(--ivory); }
 .block h2 { margin-bottom: 1rem; }
 .block__text { color: var(--grey); font-size: 1.08rem; max-width: 36rem; }
-.block__text--light { color: var(--blue-mist); margin: 0.9rem auto 0; }
+.block__text--light { color: #C9C3BA; margin: 0.9rem auto 0; }
 .block__sign { margin-top: 1.25rem; font-family: var(--font-display); font-style: italic; font-size: 1.3rem; color: var(--orange-ink); }
 
 /* Compte à rebours */
 .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-top: 1.25rem; }
-.cd { background: rgba(246, 250, 253, 0.08); border: 1px solid rgba(246, 250, 253, 0.2); border-radius: 14px; padding: 1rem 0.25rem; text-align: center; }
+.cd { background: rgba(250, 247, 241, 0.08); border: 1px solid rgba(250, 247, 241, 0.2); border-radius: 14px; padding: 1rem 0.25rem; text-align: center; }
 .cd__num { display: block; font-family: var(--font-display); font-weight: 600; font-size: clamp(1.9rem, 8vw, 3rem); line-height: 1; color: var(--orange); font-variant-numeric: tabular-nums; }
-.cd__label { display: block; margin-top: 0.4rem; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-mist); }
+.cd__label { display: block; margin-top: 0.4rem; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: #C9C3BA; }
 .countdown__done { margin-top: 1.25rem; font-family: var(--font-display); font-size: 1.5rem; }
 .countdown__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 
